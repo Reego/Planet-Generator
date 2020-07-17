@@ -347,10 +347,6 @@ class Planet {
 			}
 		}
 
-		//console.log(nodesToDisplay.length);
-
-		//console.log("LAST " + nodesToDisplay[nodesToDisplay.length - 1].x + " " + nodesToDisplay[nodesToDisplay.length - 1].height);
-
 		return nodesToDisplay;
 
 	}
@@ -375,20 +371,14 @@ class HeightColorMapPair {
 
 class NoiseLayer {
 
-	constructor() { //planetMap) {
-
-		//this.referenceMap = planetMap;
-
+	constructor() {
 		this.heightMap = [];
 		this.planet;
-
-		//this.CalculateLayer();
 	}
 
 	// Entry point of the NoiseLayer
 
 	Init(planet) {
-
 		this.referenceMap = planet.planetMap;
 		this.planet = planet;
 
@@ -399,9 +389,6 @@ class NoiseLayer {
 		this.CalculateLayer();
 
 		for(var i = 0; i < AREA; i++) {
-			// if(i % 95 == 0) {
-			// 	console.log("Height: " + this.heightMap[i]);
-			// }
 			planet.planetMap[i].height = this.heightMap[i];
 		}
 	}
@@ -501,15 +488,6 @@ class ContinentNoiseLayer extends NoiseLayer {
 		var initNodes = Math.max(5, RandomRange(12));
 
 		for(var i = 0; i < AREA; i++) {
-			// var x = i % WIDTH;
-			// var y = Math.floor(i / WIDTH);
-			// this.CalculateNode(
-			// 	i,
-			// 	x,
-			// 	y,
-			// 	this.referenceMap[i]
-			// );
-
 			this.heightMap[i] = this.referenceMap[i].height;
 		}
 
